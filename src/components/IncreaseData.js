@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import logoCheffTweet from '../assets/sin-fondo/gorro_Bautizado.png'
+import { json } from 'react-router-dom'
 
 // import { unstable_renderSubtreeIntoContainer } from 'react-dom'
 
-function IncreaseData({newRecet, setNewRecet}) {
-  let [readingRecet, setReadingRecet] = useState({name: "", ingredients: "", descripcion: ""})
+function IncreaseData({newRecet, setNewRecet, userEnter}) {
+  let [readingRecet, setReadingRecet] = useState({name: "", ingredients: "", descripcion: "", usuario: ""})
   let[error, setError] = useState(null)
   let [recetCreate, setRecetCreate] = useState(null)
   // let [visibilityConfirmacion, setVisibilityConfirmacion] = useState(false)
@@ -80,7 +81,8 @@ const submitForm = async () => {
     setNewRecet({
       name: readingRecet.name,
       ingredients: readingRecet.ingredients,
-      descripcion: readingRecet.descripcion
+      descripcion: readingRecet.descripcion,
+      usuario: userEnter.username
     });
     setError(null);
     setRecetCreate("La Receta Ha Sido Creada Con Exito");
@@ -89,7 +91,7 @@ const submitForm = async () => {
     setError("Hubo un error al crear la receta. Por favor, inténtalo de nuevo.");
   } finally {
     console.log("Limpiando campos del formulario");
-    setReadingRecet({ name: null, ingredients: null, descripcion: null });
+    setReadingRecet({ name: null, ingredients: null, descripcion: null, usuario: null });
   }
 };
 

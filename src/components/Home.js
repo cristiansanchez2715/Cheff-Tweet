@@ -65,6 +65,7 @@ return(
         
     <div className='item-container'>
 <h1>Name Recet: {recet.name}</h1>
+<h1>Name Usuario: {JSON.stringify(recet.usuario)}</h1>
 <p>Recet Ingredients: {recet.ingredients} </p>
 </div>
 <div className='view-recet-container'>

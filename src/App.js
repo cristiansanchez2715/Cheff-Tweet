@@ -23,7 +23,7 @@ function App() {
   let [usersAlreadyExist, setUsersAlreadyExist] = useState([])
   const [error, setError] = useState(null);
 let [userEnter, setUserEnter] = useState(null)
-let [newRecet, setNewRecet] = useState({name: null, ingredients: null, descripcion: null})
+let [newRecet, setNewRecet] = useState({name: null, ingredients: null, descripcion: null, usuario: null})
 let [recetsAlreadyExist, setRecetsAlreadyExist] = useState([])
 const [visibilitySearch, setVisibilitySearch] = useState(false)
 const [homeVisibility, setHomeVisibility] = useState(true)
@@ -102,7 +102,7 @@ const sesionIniciated = () => {
   return (
     <div className='sesioniniciada'>
     <BarNav setVisibilityLogIn={setVisibilityLogIn} setVisibilitySesion={setVisibilitySesion} />
-    <IncreaseData setNewRecet={setNewRecet} newRecet={newRecet} />
+    <IncreaseData userEnter={userEnter} setNewRecet={setNewRecet} newRecet={newRecet} />
     <Home homeVisibility={homeVisibility} setHomeVisibility={setHomeVisibility} visibilitySearch={visibilitySearch} setVisibilitySearch={setVisibilitySearch} recetsAlreadyExist={recetsAlreadyExist}></Home>
 <ViewRecet />
     </div>
