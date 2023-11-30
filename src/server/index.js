@@ -128,7 +128,8 @@ app.post("/login", (req, res) => {
 
   app.post("/store-recets", (req, res) => {
     const newRecet = req.body;
-  
+    let ip = req.ip
+console.log("la ip del usuario que registro la receta es" + ip)
     // Insertar la nueva receta en la base de datos
     connection.query("INSERT INTO Recetas SET ?", newRecet, (error, results, fields) => {
       console.log("Dentro de la función de callback de connection.query");

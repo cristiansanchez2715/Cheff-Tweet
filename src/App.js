@@ -46,12 +46,6 @@ const [homeVisibility, setHomeVisibility] = useState(true)
     }
   }, [loginUser]);
 
-// visibilidad aplicacion
-
-// useEffect(() => {
-//   setVisibilitySesion(true)
-//   setVisibilityLogIn(false)
-// },[loginUser])
 
 
 // ENVIANDO NUEVOS USUARIOS AL BACKEND
@@ -72,11 +66,6 @@ useEffect(() => {
   }
 }, [newUser]);
 
-// testing del usuario 
-
-useEffect(() => {
-console.log(userEnter)
-}, [userEnter])
 
 // TRAER USUARIOS DESDE EL BACKEND HASTA EL FRONTEND
 
@@ -94,15 +83,12 @@ useEffect(() => {
   fetchUsers();
 }, []);
 
-useEffect(() => {
-  console.log("desde el componente app: ", usersAlreadyExist);
-}, [usersAlreadyExist]);
-
 const sesionIniciated = () => {
   return (
     <div className='sesioniniciada'>
     <BarNav setVisibilityLogIn={setVisibilityLogIn} setVisibilitySesion={setVisibilitySesion} />
     <IncreaseData userEnter={userEnter} setNewRecet={setNewRecet} newRecet={newRecet} />
+    
     <Home homeVisibility={homeVisibility} setHomeVisibility={setHomeVisibility} visibilitySearch={visibilitySearch} setVisibilitySearch={setVisibilitySearch} recetsAlreadyExist={recetsAlreadyExist}></Home>
 <ViewRecet />
     </div>
@@ -116,12 +102,9 @@ const logIn = () => {
 }
 
 
-// Comprobacion Usuario Base de Datos
-
-
 
 // LOGICA RECETAS
-// testing llegada receta componente central
+
 
 // Enviando Recetas Al Backend
 
@@ -176,13 +159,6 @@ useEffect(() => {
 }, [newRecet]);
 
 
-// testing recetas traidas
-
-
-useEffect(() => {
-  console.log("COMPONENTE CENTRAL" + JSON.stringify(recetsAlreadyExist) )
-},[recetsAlreadyExist])
-
 
 // RETURN CENTRAL 
 
@@ -193,7 +169,7 @@ useEffect(() => {
     <Route element={<LogUp usersAlreadyExist={usersAlreadyExist} setUsersAlreadyExist={setUsersAlreadyExist}  newUser={newUser} setNewUser={setNewUser}  setVisibilityLogIn={setVisibilityLogIn} />} path="/createUser"></Route>
     <Route element={<LogIn />} path="/signIn"></Route>
     <Route element={<sesionIniciated />} path='/home'></Route>
-    <Route element={<ProfileUser setVisibilitySesion={setVisibilitySesion} userEnter={userEnter} setUserEnter={setUserEnter}/>}  path="/UserProfile"></Route>
+    <Route element={<ProfileUser setRecetsAlreadyExist={setRecetsAlreadyExist} recetsAlreadyExist={recetsAlreadyExist} setVisibilitySesion={setVisibilitySesion} userEnter={userEnter} setUserEnter={setUserEnter}/>}  path="/UserProfile"></Route>
   </Routes>
   {/* <React.Fragment> */}
     {visibilityLogIn ? logIn() : null}

@@ -38,6 +38,7 @@ function Home({homeVisibility, setHomeVisibility, recetsAlreadyExist, visibility
   
     return (     
    <div class="recipe-container">
+    
         {visibilitySearch && <div className='search-result'>
                 <button onClick={() => {
                     setVisibilitySearch(false)
@@ -58,6 +59,8 @@ setSearchInput(e.target.value)
             
         </div>
         </div>
+
+<div className='contenedor-column'> 
 {homeVisibility && recetsAlreadyExist.map((recet, index) => {
 
 return(
@@ -83,7 +86,7 @@ return(
 })
 }
 
-
+</div>
     </div>
   )
 }
@@ -91,36 +94,3 @@ return(
 export default Home
 
 
-{/* <div className='logo-cheff-container'>
-<img src={logoCheffTweet} className='logo-cheff'></img>
-        </div>
-    <div class="recipe-item">
-       
-    </div>
-
-
-    <div class="recipe-item">
-        <div className='recipe-into-container'>
-            <div className='item-container'>
-        <h1>Item 2</h1>
-        <p>Receta item 2</p>
-        </div>
-        <div className='view-recet-container'>
-            <img src={iconRecetDefect} className='icon' alt='icono'></img>
-            <button className='nav-button'>View Recet</button>
-        </div>
-        </div>
-    </div>
-
-    <div class="recipe-item">
-        <div className='recipe-into-container'>
-            <div className='item-container'>
-        <h1>Item 3</h1>
-        <p>Receta item 3</p>
-        </div>
-        <div className='view-recet-container'>
-            <img src={iconRecetDefect} className='icon' alt='icono'></img>
-            <button className='nav-button'>View Recet</button>
-        </div>
-        </div>
-    </div> */}

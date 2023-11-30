@@ -9,37 +9,6 @@ function IncreaseData({newRecet, setNewRecet, userEnter}) {
   let [readingRecet, setReadingRecet] = useState({name: "", ingredients: "", descripcion: "", usuario: ""})
   let[error, setError] = useState(null)
   let [recetCreate, setRecetCreate] = useState(null)
-  // let [visibilityConfirmacion, setVisibilityConfirmacion] = useState(false)
-
-// // Confirmacion agregar receta
-// const funcionConfirmacion = (e) => {
-//   e.preventDefault()
-//   return (
-//     <div className="confirmacion">
-//       <button
-//         className="close-btn"
-//         onClick={() => setVisibilityConfirmacion(false)}
-//       >
-//         X
-//       </button>
-//       <h1>¿Está seguro de que desea agregar esta receta?</h1>
-//       <div>
-//         <button
-//           className="action-btn accept-btn"
-//           onClick={functionComprobacion}
-//         >
-//           Aceptar
-//         </button>
-//         <button
-//           className="action-btn reject-btn"
-//           onClick={() => setVisibilityConfirmacion(false)}
-//         >
-//           Rechazar
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
 
 // funcion comprobacion formulario
 const functionComprobacion = (e)  => {
@@ -65,17 +34,7 @@ const functionComprobacion = (e)  => {
         [e.target.name]: e.target.value
     }));
 }
-// const submitForm = () => {
-//   // e.preventDefault()
-//   setNewRecet({
-//      name: readingRecet.name,
-//      ingredients: readingRecet.ingredients,
-//      descripcion: readingRecet.descripcion
-//   })
-//   setError(null)
-//   setRecetCreate("La Receta Ha Sido Creada Con Exito")
-//   setReadingRecet({name: "", ingredients: "", descripcion: ""})
-// }  
+
 const submitForm = async () => {
   try {
     setNewRecet({
@@ -95,15 +54,6 @@ const submitForm = async () => {
   }
 };
 
-// testing funcionalidades
-
-useEffect(() => {
-  console.log(readingRecet)
-},[readingRecet])
-
-useEffect(() => {
-  console.log(newRecet)
-},[newRecet])
 
 // Confirmacion del Formulario
 

@@ -15,10 +15,7 @@ function LogIn({setVisibilitySearch, setHomeVisibility, setUserEnter, setLoginUs
 
 
 
-// testing
-useEffect(() => {
-    console.log("desde el componente login: ", usersAlreadyExist)
-},[])
+
 // Logica capturar formulario
 
 const handelChange = (e) => {

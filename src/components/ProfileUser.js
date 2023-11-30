@@ -6,16 +6,27 @@ import { useState } from 'react'
 
 import logoCheffTweet from '../assets/sin-fondo/gorro_Bautizado.png'
 
-function ProfileUser({setVisibilitySesion, userEnter}) {
+function ProfileUser({setRecetsAlreadyExist ,setVisibilitySesion, userEnter, recetsAlreadyExist}) {
+  const [userRecets, setUserRecets] = useState(null)
   const [visibilitySettings, setVisibilitySettings] = useState(false)
 
 //   testing datos usuario
 useEffect(() => {
-    console.log("profile user: "+ JSON.stringify(userEnter))
-},[])
+    console.log("profile user: "+ userEnter)
+},[userEnter])
 const returnHome = () => {
 setVisibilitySesion(true)
 }
+const filtrarRecetasUsuario = () => {
+  const recetasDeUsuario = recetsAlreadyExist.filter((recet) => recet.usuario === userEnter.username);
+  setUserRecets(recetasDeUsuario);
+}
+
+useEffect(() => {
+console.log("la totalidad de las recetas existentes son"+ recetsAlreadyExist)
+filtrarRecetasUsuario()
+console.log("las recetas de este usuario son: " + userRecets)
+}, [recetsAlreadyExist])
 
 // options function
 
@@ -64,26 +75,25 @@ const Opciones = () => {
 </div>
 
 <div className='recets-user'>
-<div className='recet1'>
-<h2 style={{color: "#45a049"}}>Recet 1</h2>
-<h2>Ingredients</h2>
-<h2>Description</h2>
-<p>Lorem ipsum</p>
 </div>
 
-<div className='recet2'>
-<h2 style={{color: "#45a049"}}>Recet 2</h2>
-<h2>Ingredients</h2>
-<h2>Description</h2>
-<p>Lorem ipsum</p>
-</div>
-
-</div>
 <div className='position-settings'>
 {
     visibilitySettings && Opciones()
 }
 </div>
+
+
+<div className='contenedor-recetas-container'>
+{userRecets && userRecets.map((receta, index) => (
+  <div key={index} className="receta-container">
+    <h1 className="receta-title">Nombre de la receta: {receta.name}</h1>
+    <p className="receta-description">Descripción de la receta: {receta.descripcion}</p>
+    <p className="receta-ingredients">Ingredientes de la receta: {receta.ingredients}</p>
+  </div>
+))}
+</div>
+
     </div>
   )
 }

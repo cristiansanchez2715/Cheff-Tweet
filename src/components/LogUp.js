@@ -26,13 +26,6 @@ const functionComprobateUsernmeAndEmail = (e) => {
 const changeVisibility = () => {
     setVisibilityLogIn(false)
 }
-// testing
-useEffect(() => {
-
-    // setUsersAlreadyExist(JSON.stringify(usersAlreadyExist))
-    console.log("LogUp Seccion: " + JSON.stringify(usersAlreadyExist, null, 2))
-
-}, [usersAlreadyExist])
 
 
 useEffect(() => {
